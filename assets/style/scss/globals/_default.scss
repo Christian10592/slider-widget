@@ -1,0 +1,31 @@
+@import 'variables';
+
+// ========================================= Defaults ================================= //
+
+* {
+  font-family: $primary-font;
+  font-weight: $font-light;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-color: $font-color;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-repeat: no-repeat;
+}
+
+body {
+  background:#f5f5f5;
+  padding-bottom: 300px;
+}
+
+* {
+  position: relative;
+}
+
+*, *:after, *:before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

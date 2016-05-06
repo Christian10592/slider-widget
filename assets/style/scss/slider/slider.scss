@@ -1,0 +1,92 @@
+@import '../globals/variables';
+
+// ========================================= Slider ================================= //
+
+.slides {
+  list-style: none;
+}
+
+.slider-container {
+  width: 1170px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  width: 1170px;
+  height: 700px;
+  float: left;
+}
+
+.controls {
+  position: absolute;
+  width: 100%;
+  display: none;
+
+  .prev, .next {
+    display: flex;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    background-color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: .35s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.75);
+
+      & i {
+        color: white;
+      }
+
+    }
+
+
+  }
+
+  i {
+    font-size: 45px;
+    width: 100%;
+    color: #222;
+  }
+  .prev {
+    float: left;
+  }
+  .next {
+    float: right;
+  }
+}
+
+.bullets-container {
+  bottom: 0;
+  height: 50px;
+  position: absolute;
+  width: 100%;
+  .bullets {
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    display: none;
+    .bullet {
+      background: white;
+      border-radius: 13px;
+      float: left;
+      height: 13px;
+      margin-right: 13px;
+      width: 13px;
+      &.active-bullet {
+        background: $blue;
+        border: 3px solid white;
+      }
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import 'variables';
+// ========================================= Fonts ================================ //
+
+//Open Sans
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700);
+
+// ========================================= Font Styles ================================= //
+//Generate Headings
+@mixin heading-style($font-family, $font-size, $font-line-height){
+	font-family: $font-family;
+	font-weight: $font-bold;
+	font-size: $font-size;
+	line-height: $font-line-height;
+}
+
+h1 {
+  @include heading-style($primary-font, 2.125em, 1.1em);
+}
+
+h2 {
+  @include heading-style($primary-font, 1.5em, 1.1em);
+}
+
+h3 {
+  @include heading-style($primary-font, 1.5em, 1.1em);
+}
+
+h4 {
+  @include heading-style($primary-font, 1.125em, 1.1em);
+}
+
+h5 {
+  @include heading-style($primary-font, 1.125em, 1.1em);
+}
+
+h6 {
+  @include heading-style($primary-font, 1em, 1.1em);
+}

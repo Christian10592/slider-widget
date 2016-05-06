@@ -1,0 +1,22 @@
+// ========================================= Globals ================================= //
+//Import Variables
+@import 'globals/variables';
+
+//Import Normalize
+@import 'globals/normalize';
+
+//Import Default
+@import 'globals/default';
+
+//Import Titles
+@import 'globals/titles';
+
+//Import Header
+@import 'globals/header';
+
+//Import Fonts
+@import 'globals/import-fonts';
+
+// ========================================= Slider ================================== //
+//Import Slider
+@import 'slider/slider.scss'

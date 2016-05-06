@@ -1,0 +1,100 @@
+// ========================================= Misc ================================= //
+
+//Transition
+$default-transition: .25s;
+
+//Standard Box Shadow
+$box-shadow:0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+//Standard Border Style
+$border: 1px solid rgba(0, 0, 0, 0.12);
+
+//Gutter
+$gutter:15px;
+
+// ========================================= Colors =============================== //
+
+//Standard Font Color
+$font-color: #222222;
+
+//Green
+$green: #00C853;
+
+//Red
+$red:#F44336;
+
+//Blue
+$blue:#2196F3;
+
+//Light Grey
+$light-grey:#F5F5F5;
+
+//Medium Grey
+$medium-grey: #616161;
+
+//Blue Grey
+$blue-grey: #78909C;
+
+
+// ========================================= Fonts ================================ //
+
+//Primary Font --- Lato
+$primary-font: Lato;
+$font-ultra-light: 100;
+$font-light: 300;
+$font-normal:400;
+$font-bold: 700;
+
+
+// ========================================= Buttons ================================= //
+
+//Declare Standard Button Styles
+$button-font-color: white;
+$border-style: solid;
+$border-width: .125em;
+$button-font-family: $primary-font;
+$button-font-weight: $font-bold;
+$button-border-radius: 0.285em;
+$button-cursor-type: pointer;
+$button-transition-time: .15s;
+$button-horizontal-gutter:1.5em;
+$button-vertical-gutter:.65em;
+
+//Generate Ghost Buttons?
+$generate-ghost-buttons: true;
+
+//Declare Button Sizes (Font Size)
+$button-sizes: (
+  large: 1.25em,
+  normal: 1em,
+  small: .75em
+) !default;
+
+//Declare Button Colors
+$button-colors: (
+  green: $green,
+  blue:$blue,
+  red:$red
+) !default;
+
+//Hover Color Change (Percentage)
+$hover-color-change: 7.5%;
+
+// ========================================= Inputs ================================== //
+
+//Deault Input Variables
+$input-font-family: $primary-font;
+$input-font-weight: $font-bold;
+$input-border: $border;
+$input-background-color: white;
+$input-font-color: $medium-grey;
+$input-border-radius: 0;
+$input-shadow-effect: 0 0 0px 1px $medium-grey;
+$input-horizontal-gutter:.625em;
+$input-vertical-gutter:.313em;
+$input-width: 400px;
+$input-transition: .25s;
+$input-height:42px;
+
+$textarea-height: 250px;
+$textarea-resize: none;
