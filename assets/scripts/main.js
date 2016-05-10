@@ -3,7 +3,10 @@ $(document).ready(function(){
 //==================== TODO ==================== //
 //Clean Up and Organize
 //Infinite Slider Loop
+    //Bug slider position isn't resetting
 //Better Documentation
+//Change main classes to IDs
+//Change SCSS to BEM
 
 //==================== List of Selectors ====================//
 
@@ -29,7 +32,7 @@ var firstBullet       = $('.bullet:nth-child(1)');
 var actionSlide;
 
 //Set Slider Position
-var slidePos = 0;
+var slidePos = 1;
 
 //Slide Speed
 var slideSpeed = 300;
@@ -48,8 +51,8 @@ var countSlides = slide.length;
 //Find Slide Width
 var slideWidth = parseInt(slide.css('width'));
 
-//Set Slider Container Width
-var sliderWidth = slideWidth * countSlides + 'px';
+//Set Slider Container Width (add 2 to account for cloned slides for infinite loop)
+var sliderWidth = slideWidth * (countSlides + 2) + 'px';
 
 //Get height of the controls
 var controlHeight = parseInt($('.controls').css('height'));
@@ -94,22 +97,49 @@ function changeActiveBullet(current) {
 //==================== Slide Animations =====================//
 
 //Generate Slider Width
-slides.css({'width': sliderWidth});
+//Offset first slide to account for cloned slide
+slides.css({
+  'width': sliderWidth,
+  'left': '-' + slideWidth + 'px'
+});
 
 //Centers the controls
 controlsContainer.css({'margin-top': centerControls});
 
-//Function determines which direction was clicked by passing a param that represents the class of the button clicked also changes the active bullet position by 1
-function actionSlide(direction) {
+function changeBullet(direction) {
   if (direction == 'prev') {
-    doSlide = '+=' + slideWidth + 'px';
     bulletNav--;
   } else {
-    doSlide = '-=' + slideWidth + 'px';
     bulletNav++;
   }
-  changeActiveBullet(bulletNav)
-  slides.animate({'margin-left': doSlide}, slideSpeed);
+}
+
+function animateSlide(doSlide) {
+  slides.animate({'left': doSlide}, slideSpeed);
+}
+
+function actionSlide(direction) {
+  changeBullet(direction)
+  if (direction == 'prev' && bulletNav == 0) {
+    doSlide = '+=' + slideWidth + 'px';
+    animateSlide(doSlide);
+    slides.css({'left': ('-' + countSlides * slideWidth) + 'px'});
+    bulletNav = countSlides;
+  } else if (direction == 'next' && bulletNav >= 1 && bulletNav <= countSlides) {
+    doSlide = '-=' + slideWidth + 'px';
+    animateSlide(doSlide);
+  } else if (direction == 'next' && bulletNav == (countSlides + 1) ) {
+      doSlide = '-=' + slideWidth + 'px';
+      animateSlide(doSlide);
+      slides.css({'left': '-' + slideWidth + 'px'});
+      bulletNav = 1;
+  } else if (direction == 'prev' && bulletNav <= countSlides) {
+      doSlide = '+=' + slideWidth + 'px';
+      animateSlide(doSlide);
+  }
+  changeActiveBullet(bulletNav);
+  console.log(bulletNav);
+
 }
 
 //When a control is clicked gets controls class name and uses that as the param for actionSlide()
@@ -129,6 +159,19 @@ sliderContainer.hover(function(){
     controlsVisible = true;
   }
 });
+
+//==================== Infinite Loop ========================//
+
+//Clone First Slide
+firstSlide.before(lastSlide.clone(true));
+//Clone Second Slide
+lastSlide.after(firstSlide.clone(true));
+
+
+
+
+
+
 
 //End Document.ready
 });

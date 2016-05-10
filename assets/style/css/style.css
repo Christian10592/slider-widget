@@ -438,7 +438,8 @@ h6 {
   line-height: 1.1em; }
 
 .slides {
-  list-style: none; }
+  list-style: none;
+  position: relative; }
 
 .slider-container {
   width: 1170px;
