@@ -1,0 +1,21 @@
+@import '../globals/variables';
+
+// ========================================= Slider Variables ================================= //
+
+//========== Slides ============//
+$slide-width: 1170px;
+$slide-height: 700px;
+
+//========== Controls ==========//
+$controls-background: rgba(255, 255, 255, 0.75);
+$controls-background-hover: rgba(0, 0, 0, 0.75);
+$controls-icon-color: #222;
+$controls-icon-color-hover: white;
+$controls-icon-background-size: 90px;
+$controls-icon-size: 45px;
+
+//========== Bullets ===========//
+$bullet-color: $blue;
+$bullet-border: 3px solid white;
+$bullet-background: white;
+$bullet-size: 13px;

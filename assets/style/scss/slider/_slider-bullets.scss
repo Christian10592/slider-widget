@@ -1,0 +1,31 @@
+@import 'slider-variables';
+
+// ========================================= Slider Bullets ================================= //
+
+.bullets-container {
+  bottom: 0;
+  height: $bullet-size * 2;
+  position: absolute;
+  width: 100%;
+  .bullets {
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    display: none;
+    .bullet {
+      background: $bullet-background;
+      border-radius: $bullet-size;
+      float: left;
+      height: $bullet-size;
+      margin-right: $bullet-size;
+      width: $bullet-size;
+      &.active-bullet {
+        background: $bullet-color;
+        border: $bullet-border;
+      }
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}
