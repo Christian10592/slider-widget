@@ -18,5 +18,14 @@
 @import 'globals/import-fonts';
 
 // ========================================= Slider ================================== //
-//Import Slider
-@import 'slider/slider.scss'
+//Import Slider Variables
+@import 'slider/slider-variables';
+
+//Import Slides
+@import 'slider/slides.scss';
+
+//Import Slider Controls
+@import 'slider/slider-controls';
+
+//Import Slider Bullets
+@import 'slider/slider-bullets';

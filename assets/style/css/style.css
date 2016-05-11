@@ -437,10 +437,6 @@ h6 {
   font-size: 1em;
   line-height: 1.1em; }
 
-.slides {
-  list-style: none;
-  position: relative; }
-
 .slider-container {
   width: 1170px;
   height: 700px;
@@ -448,17 +444,19 @@ h6 {
   margin-right: auto;
   overflow: hidden;
   position: relative; }
+  .slider-container .slides {
+    list-style: none;
+    position: relative; }
+    .slider-container .slides .slide {
+      width: 1170px;
+      height: 700px;
+      float: left; }
 
-.slide {
-  width: 1170px;
-  height: 700px;
-  float: left; }
-
-.controls {
+.slider-controls {
   position: absolute;
   width: 100%;
   display: none; }
-  .controls .prev, .controls .next {
+  .slider-controls .prev, .slider-controls .next {
     display: flex;
     align-items: center;
     width: 90px;
@@ -469,22 +467,22 @@ h6 {
     padding: 0;
     text-align: center;
     transition: .35s; }
-    .controls .prev:hover, .controls .next:hover {
+    .slider-controls .prev:hover, .slider-controls .next:hover {
       background-color: rgba(0, 0, 0, 0.75); }
-      .controls .prev:hover i, .controls .next:hover i {
+      .slider-controls .prev:hover i, .slider-controls .next:hover i {
         color: white; }
-  .controls i {
+  .slider-controls i {
     font-size: 45px;
     width: 100%;
     color: #222; }
-  .controls .prev {
+  .slider-controls .prev {
     float: left; }
-  .controls .next {
+  .slider-controls .next {
     float: right; }
 
 .bullets-container {
   bottom: 0;
-  height: 50px;
+  height: 26px;
   position: absolute;
   width: 100%; }
   .bullets-container .bullets {

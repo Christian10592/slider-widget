@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/style/css/style.min.css" media="screen" title="no title" charset="utf-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="assets/scripts/jquery-2.2.3.min.js"></script>
     <script src="assets/scripts/main.min.js"></script>
   </head>
   <body>
@@ -17,10 +17,11 @@
       <p class="small-text">by Christian Smitherman</p>
     </header>
     <!-- End Header -->
+
     <!-- Slider Container -->
-    <div class="slider-container">
+    <div id='slider-container' class="slider-container">
       <!-- Start Slides -->
-      <ul class="slides">
+      <ul id='slides' class="slides">
         <!-- Start Single Slide -->
         <li class="slide">
           <img src="assets/images/slide-1.jpg" />
@@ -45,7 +46,7 @@
       </ul>
       <!-- End Slides -->
       <!-- Start Slider Controls -->
-      <div class="controls">
+      <div id='slider-controls' class="slider-controls">
         <div class="prev">
           <i class="material-icons">chevron_left</i>
         </div>
@@ -56,7 +57,7 @@
       <!-- End Slider Controls -->
       <!-- Start Bullets -->
       <div class="bullets-container">
-        <ul class="bullets"></ul>
+        <ul id='bullets' class="bullets"></ul>
       </div>
       <!-- End Bullets -->
     </div>

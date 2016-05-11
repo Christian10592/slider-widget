@@ -2,30 +2,25 @@ $(document).ready(function(){
 
 //==================== TODO ==================== //
 //Clean Up and Organize
-//Infinite Slider Loop
-    //Bug slider position isn't resetting
 //Better Documentation
-//Change main classes to IDs
-//Change SCSS to BEM
 
 //==================== List of Selectors ====================//
 
 //Slider
-var sliderContainer   = $('.slider-container');
-var slides            = $('.slides');
+var sliderContainer   = $('#slider-container');
+var slides            = $('#slides');
 var slide             = $('.slide');
 var firstSlide        = $('.slide:first-child');
 var lastSlide         = $('.slide:last-child');
 
 //Controls
-var controlsIcon      = $('.controls i');
-var controlsContainer = $('.controls');
+var controlsIcon      = $('#slider-controls i');
+var controlsContainer = $('#slider-controls');
 
 //Bullets
-var bullets           = $('.bullets');
+var bullets           = $('#bullets');
 var bullet            = $('.bullet');
 var activeBullet      = $('.active-bullet');
-var firstBullet       = $('.bullet:nth-child(1)');
 
 //==================== Global Variables ======================//
 //actionSlide
@@ -55,10 +50,10 @@ var slideWidth = parseInt(slide.css('width'));
 var sliderWidth = slideWidth * (countSlides + 2) + 'px';
 
 //Get height of the controls
-var controlHeight = parseInt($('.controls').css('height'));
+var controlHeight = parseInt(controlsContainer.css('height'));
 
 //Get height of slider
-var sliderHeight = parseInt($('.slider-container').css('height'));
+var sliderHeight = parseInt(sliderContainer.css('height'));
 
 //Center the controls -- subtract the height of the slider by the height of the controls divide by 2 and add px to the end
 var centerControls = (sliderHeight - controlHeight) / 2 + 'px';
@@ -91,7 +86,13 @@ bullets.css({'width': calBulletContainer});
 //Change Active Bullet
 function changeActiveBullet(current) {
   $('.active-bullet').removeClass('active-bullet');
-  $('.bullet:nth-child(' + current + ')').addClass('active-bullet');
+  if (current == 0) {
+    $('.bullet:last-child').addClass('active-bullet');
+  } else if (current == (countSlides + 1)) {
+    $('.bullet:first-child').addClass('active-bullet');
+  } else {
+    $('.bullet:nth-child(' + current + ')').addClass('active-bullet');
+  }
 }
 
 //==================== Slide Animations =====================//
@@ -115,31 +116,31 @@ function changeBullet(direction) {
 }
 
 function animateSlide(doSlide) {
-  slides.animate({'left': doSlide}, slideSpeed);
+  slides.animate({'left': doSlide}, slideSpeed, function () {
+    if (bulletNav == 0) {
+      $(this).css({'left': ('-' + countSlides * slideWidth) + 'px'});
+      bulletNav = countSlides;
+    } else if (bulletNav == (countSlides + 1)) {
+      $(this).css({'left': '-' + slideWidth + 'px'});
+      bulletNav = 1;
+    }
+  });
+  changeActiveBullet(bulletNav);
 }
 
 function actionSlide(direction) {
-  changeBullet(direction)
-  if (direction == 'prev' && bulletNav == 0) {
+  changeBullet(direction);
+
+  if (direction == 'prev') {
     doSlide = '+=' + slideWidth + 'px';
     animateSlide(doSlide);
-    slides.css({'left': ('-' + countSlides * slideWidth) + 'px'});
-    bulletNav = countSlides;
-  } else if (direction == 'next' && bulletNav >= 1 && bulletNav <= countSlides) {
+  } else if (direction == 'next') {
     doSlide = '-=' + slideWidth + 'px';
     animateSlide(doSlide);
-  } else if (direction == 'next' && bulletNav == (countSlides + 1) ) {
-      doSlide = '-=' + slideWidth + 'px';
-      animateSlide(doSlide);
-      slides.css({'left': '-' + slideWidth + 'px'});
-      bulletNav = 1;
-  } else if (direction == 'prev' && bulletNav <= countSlides) {
-      doSlide = '+=' + slideWidth + 'px';
-      animateSlide(doSlide);
   }
-  changeActiveBullet(bulletNav);
-  console.log(bulletNav);
 
+
+  console.log(bulletNav);
 }
 
 //When a control is clicked gets controls class name and uses that as the param for actionSlide()
